@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jonah Park</title>
+<meta name="description" content="Jonah Park studies electrical and computer engineering at Princeton. Projects, experience and honors.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23f6f4ee'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-size='20' font-weight='600' text-anchor='middle' fill='%231d1c1a'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f6f4ee;
+  --ink: #1d1c1a;
+  --soft: #6f6b63;
+  --line: #dcd8cd;
+  --sans: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2.5rem; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  /* faint paper grain */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .32 0 0 0 0 .26 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #b9b4a7;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+a:hover { text-decoration-color: var(--ink); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+.page {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* ---------- left: who ---------- */
+.who h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 1.75rem;
+}
+.who p { margin: 0 0 1rem; max-width: 27rem; }
+.who .links { margin-top: 1.75rem; color: var(--soft); }
+.who .links a { color: var(--ink); }
+.who nav {
+  margin-top: 2.5rem;
+  display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem;
+  color: var(--soft);
+}
+.who nav a { text-decoration: none; color: var(--soft); }
+.who nav a:hover { color: var(--ink); }
+
+/* ---------- right: the index ---------- */
+.group { margin-top: 3.5rem; }
+.group > h2 {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--soft);
+  margin: 0 0 0.6rem;
+}
+.group > h2.minor { margin-top: 2.5rem; }
+
+.item { border-top: 1px solid var(--line); }
+.item:last-of-type { border-bottom: 1px solid var(--line); }
+
+.item summary, .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  padding: 0.85rem 0;
+  align-items: baseline;
+}
+.item summary { cursor: pointer; list-style: none; }
+.item summary::-webkit-details-marker { display: none; }
+
+.name { font-weight: 600; }
+.what { grid-column: 1; color: var(--soft); }
+.when {
+  grid-column: 2; grid-row: 1;
+  color: var(--soft);
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.item summary .when::after {
+  content: "+";
+  display: inline-block; width: 1.1rem; text-align: right;
+  color: var(--ink);
+}
+.item[open] summary .when::after { content: "\2212"; }
+.item summary:hover .name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+
+.more { padding: 0 0 1.25rem; max-width: 34rem; }
+.more p { margin: 0 0 0.75rem; }
+.more .meta { color: var(--soft); font-size: 0.9375rem; margin: 0; }
+.more .meta a { color: var(--ink); }
+
+.video { display: block; max-width: 22rem; margin: 0 0 0.9rem; text-decoration: none; font-size: 0.9375rem; }
+.video img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); border-radius: 3px; margin-bottom: 0.35rem; }
+.video span { text-decoration: underline; text-decoration-color: #b9b4a7; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+.video:hover span { text-decoration-color: var(--ink); }
+
+.row { border-top: 1px solid var(--line); }
+.row:last-child { border-bottom: 1px solid var(--line); }
+
+footer { margin-top: 4rem; color: var(--soft); font-size: 0.9375rem; }
+
+/* ---------- wide screens: two columns, left one stays put ---------- */
+@media (min-width: 58rem) {
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 24rem) minmax(0, 36rem);
+    justify-content: space-between;
+    column-gap: 4rem;
+    padding: 5.5rem 2.5rem 7rem;
+  }
+  .who { position: sticky; top: 5.5rem; align-self: start; }
+  .who nav { flex-direction: column; gap: 0.3rem; }
+  .group:first-child { margin-top: 0.55rem; }
+
+  .item summary, .row { grid-template-columns: 9.5rem 1fr auto; }
+  .what { grid-column: 2; }
+  .when { grid-column: 3; }
+  .more { margin-left: 10.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="who">
+    <h1>Jonah Park</h1>
+    <p>I’m a first-year at Princeton studying electrical and computer engineering, with a minor in statistics and machine learning.</p>
+    <p>I like building across hardware and software. So far that has meant a drone that finds its position without GPS, a pop-up storybook animated by AI agents, and a calendar app that pulls school and personal life into one place.</p>
+    <p>Before Princeton I co-captained the Pingry debate team, researched carbon-capturing concrete at Rutgers, and co-founded an environmental education app that won the Congressional App Challenge.</p>
+
+    <p class="links"><a href="mailto:jp2922@princeton.edu">jp2922@princeton.edu</a><br><a href="https://github.com/jpark2007">github.com/jpark2007</a></p>
+
+    <nav aria-label="On this page">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#honors">Honors</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="group" id="projects">
+      <h2>Projects</h2>
+
+      <details class="item">
+        <summary>
+          <span class="name">Stitch</span>
+          <span class="what">A family’s memories as an animated pop-up book. 2nd place at HackPrinceton. Video inside.</span>
+          <span class="when">2026</span>
+        </summary>
+        <div class="more">
+          <p>Each family member adds photos and answers questions like “How did you meet Mom?” Stitch turns every answer into a page of a 3D pop-up book: the set rises off the paper, jointed paper puppets act out the memory, and the story is narrated in the teller’s own words.</p>
+          <p>Eight AI sub-agents built on LangChain deepagents storyboard, design and direct each scene. A compiler written in plain code then turns their screenplay into animation and rejects impossible actions, like handing over something a puppet isn’t holding.</p>
+          <a class="video" href="https://www.youtube.com/watch?v=cXz1GW_Y6z8" aria-label="Watch the Stitch video on YouTube"><img src="https://i.ytimg.com/vi/cXz1GW_Y6z8/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span>Watch on YouTube</span></a>
+          <p class="meta">Built with two teammates. Next.js, three.js, FastAPI, LangGraph, MongoDB Atlas.<br><a href="https://devpost.com/software/stitch-l7cig9">Devpost</a> &nbsp; <a href="https://github.com/jpark2007/Stitch">Code</a></p>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>
+          <span class="name">VPR Drone</span>
+          <span class="what">A drone that finds its position without GPS. Video inside.</span>
+          <span class="when">2026</span>
+        </summary>
+        <div class="more">
+          <p>A drone that locates itself by sight. A visual place recognition model matches what the camera sees against a database of satellite images and returns the drone’s position. We tested KNN, MixVPR and DINO + VLAD retrieval.</p>
+          <p>The hardware is a Pixhawk 6C flight controller running ArduPilot, an NVIDIA Jetson Orin Nano and a 12 MP camera.</p>
+          <a class="video" href="https://www.youtube.com/watch?v=oAWJjWLQWDc" aria-label="Watch the VPR Drone video on YouTube"><img src="https://i.ytimg.com/vi/oAWJjWLQWDc/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span>Watch on YouTube</span></a>
+          <p class="meta">Co-led a team of four. Python, ArduPilot, Jetson Orin Nano.<br><a href="https://github.com/jpark2007/DroneProject">Code</a></p>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>
+          <span class="name">Root Education</span>
+          <span class="what">An environmental education app piloted in schools. Congressional App Challenge winner. Video inside.</span>
+          <span class="when">2024–25</span>
+        </summary>
+        <div class="more">
+          <p>I co-founded Root to teach environmental science through a curriculum and an app. We partnered with the Alliance for New Jersey Environmental Education, the state’s largest organization of environmental educators, and secured pilots in schools.</p>
+          <p>Root won the Congressional App Challenge, which took us to the House of Code at the Capitol.</p>
+          <a class="video" href="https://www.youtube.com/watch?v=kbHflP0IHEw&amp;t=5s" aria-label="Watch the Root Education demo on YouTube"><img src="https://i.ytimg.com/vi/kbHflP0IHEw/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span>Watch on YouTube</span></a>
+          <p class="meta">Co-founder. Flutter, Firebase.</p>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>
+          <span class="name">Atlas</span>
+          <span class="what">One calendar for Apple Calendar, Google Calendar and Canvas.</span>
+          <span class="when">2026</span>
+        </summary>
+        <div class="more">
+          <p>A life manager for iOS and macOS built around a single calendar. It pulls in Apple Calendar, Google Calendar and Canvas, and organizes everything into spaces such as school, personal and business.</p>
+          <p>You type what’s on your mind in plain English, and Atlas turns it into tasks, files each one under the right part of your life, and helps place it on your timeline.</p>
+          <p class="meta">Built with a friend, in progress. SwiftUI, Supabase, EventKit, Google Calendar API.<br><a href="https://github.com/jpark2007/Atlas">Code</a></p>
+        </div>
+      </details>
+
+
+
+
+      <h2 class="minor">Smaller builds</h2>
+
+      <div class="row">
+        <span class="name">KDex</span>
+        <span class="what">A Pokédex-style iOS directory for clubs. Add members by scanning a QR code or tapping phones.</span>
+        <span class="when">2026</span>
+      </div>
+      <div class="row">
+        <span class="name"><a href="https://github.com/jpark2007/paperreads">Paperreads</a></span>
+        <span class="what">A minimalist macOS reader for research papers, with questions answered from the paper itself.</span>
+        <span class="when">2026</span>
+      </div>
+      <div class="row">
+        <span class="name"><a href="https://github.com/jpark2007/Dishr">Dishr</a></span>
+        <span class="what">Social recipe sharing. Follow other cooks and log each try with a rating and photo.</span>
+        <span class="when">2026</span>
+      </div>
+    </section>
+
+    <section class="group" id="experience">
+      <h2>Experience</h2>
+
+      <details class="item">
+        <summary>
+          <span class="name">Tiger Investments</span>
+          <span class="what">Analyst at Princeton’s oldest investment club. One of 11 selected from 330+ applicants.</span>
+          <span class="when">2026–</span>
+        </summary>
+        <div class="more">
+          <p>I research companies using filings, earnings calls, sell-side reports, expert calls and alternative data.</p>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>
+          <span class="name">Sushi Nakazawa</span>
+          <span class="what">Culinary and management intern at a Michelin-starred restaurant.</span>
+          <span class="when">2026</span>
+        </summary>
+        <div class="more">
+          <p>I learned inventory, reservations and kitchen operations from the team, and helped run front-of-house service in the private dining room and the main restaurant.</p>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>
+          <span class="name">Pingry Debate</span>
+          <span class="what">Co-captain. Ranked #68 in the country, and grew the team from 2 members to 20.</span>
+          <span class="when">2022–26</span>
+        </summary>
+        <div class="more">
+          <p>Top-32 finishes at the Princeton, Harvard and UPenn tournaments. Qualified for the Tournament of Champions Gold and NSDA Nationals as one of four New Jersey teams in Public Forum.</p>
+          <p>We also hosted a free summer camp with more than 150 hours of coaching.</p>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>
+          <span class="name">Rutgers</span>
+          <span class="what">Research intern, Riman Materials Science Research Group. Carbon-capturing concrete.</span>
+          <span class="when">2024</span>
+        </summary>
+        <div class="more">
+          <p>I researched concrete alternatives that harden by carbonation instead of hydration, capturing carbon dioxide as they cure.</p>
+          <p>I helped build Reefense, reef-mimicking structures that protect Air Force bases, a project DARPA funded with $12.6 million. I then designed and led a project on carbonating delignified wood and formed a research team at Pingry.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="group" id="honors">
+      <h2>Honors</h2>
+
+      <div class="row">
+        <span class="name">HackPrinceton</span>
+        <span class="what">2nd place, Entertainment track, for Stitch</span>
+        <span class="when">2026</span>
+      </div>
+      <div class="row">
+        <span class="name">Congressional App Challenge</span>
+        <span class="what">Winner, for Root Education</span>
+      </div>
+      <div class="row">
+        <span class="name">C.B. Newton Prize</span>
+        <span class="what">Pingry-Princeton Scholarship Prize, The Pingry School</span>
+        <span class="when">2026</span>
+      </div>
+      <div class="row">
+        <span class="name">Debate</span>
+        <span class="what">Tournament of Champions Gold and NSDA Nationals qualifier</span>
+      </div>
+      <div class="row">
+        <span class="name">Wharton Investment Competition</span>
+        <span class="what">Semifinalist</span>
+      </div>
+      <div class="row">
+        <span class="name">Harvard HS Economics</span>
+        <span class="what">Quarterfinalist</span>
+      </div>
+    </section>
+
+    <footer>Princeton University, Class of 2030</footer>
+
+  </main>
+</div>
+</body>
+</html>
