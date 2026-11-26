@@ -1,0 +1,5 @@
+title: Jonah Park
+permalink: /blog/:title/
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
