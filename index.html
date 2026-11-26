@@ -18,7 +18,6 @@
   <header class="who">
     <h1>Jonah Park</h1>
     <p>Hi, I’m Jonah, I study electrical computer engineering at Princeton. I like building and telling stories.</p>
-    <figure class="photo"><img src="me.jpg" alt="Jonah and a friend in the snow at night, in front of trees strung with lights" width="1024" height="768"></figure>
 
     <p class="links"><a href="mailto:jp2922@princeton.edu">jp2922@princeton.edu</a><br><a href="https://github.com/jpark2007">github.com/jpark2007</a><br><a href="resume.pdf">Resume</a></p>
 
@@ -30,16 +29,5 @@
   </header>
 
 </div>
-<script>
-(() => {
-  const el = document.querySelector('.photo');
-  if (!el) return;
-  el.addEventListener('pointermove', (e) => {
-    const r = el.getBoundingClientRect();
-    el.style.setProperty('--x', ((e.clientX - r.left) / r.width * 100) + '%');
-    el.style.setProperty('--y', ((e.clientY - r.top) / r.height * 100) + '%');
-  });
-})();
-</script>
 </body>
 </html>
